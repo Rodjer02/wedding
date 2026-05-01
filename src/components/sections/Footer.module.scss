@@ -1,0 +1,41 @@
+.footer {
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 3rem 1.25rem;
+  text-align: center;
+}
+
+.inner {
+  max-width: 720px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.names {
+  font-family: var(--font-display);
+  @include fluid-text(28, 44);
+  color: var(--color-accent-soft);
+
+  span {
+    color: var(--color-accent);
+    font-style: italic;
+    margin-inline: 0.5rem;
+  }
+}
+
+.closing {
+  font-style: italic;
+  opacity: 0.8;
+  max-width: 48ch;
+}
+
+.date {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}

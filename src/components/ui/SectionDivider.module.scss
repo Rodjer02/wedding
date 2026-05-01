@@ -1,0 +1,34 @@
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 1.5rem;
+  max-width: 920px;
+  margin-inline: auto;
+  pointer-events: none;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-border) 50%,
+    transparent 100%
+  );
+  max-width: 240px;
+}
+
+.glyph {
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  color: var(--color-accent);
+
+  @include respond-to(md) {
+    width: 100px;
+    height: 100px;
+  }
+}

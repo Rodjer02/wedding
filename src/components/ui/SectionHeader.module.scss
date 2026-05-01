@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+
+  @include respond-to(md) {
+    margin-bottom: 4rem;
+    gap: 1rem;
+  }
+}
+
+.center {
+  text-align: center;
+  align-items: center;
+}
+
+.left {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+}
+
+.title {
+  font-family: var(--font-script);
+  @include fluid-text(36, 68);
+  color: var(--color-text);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.divider {
+  &::after {
+    content: var(--section-divider);
+    color: var(--color-accent);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+}
+
+.description {
+  max-width: 56ch;
+  color: var(--color-muted);
+  @include fluid-text(15, 18);
+}
+
+.left .description {
+  margin-inline: 0;
+}

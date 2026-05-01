@@ -1,0 +1,83 @@
+@use "sass:map";
+@use "sass:math";
+
+$breakpoints: (
+  sm: 360px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px,
+);
+
+@mixin respond-to($key) {
+  $value: map.get($breakpoints, $key);
+  @if $value {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+
+// Fluid type — clamp helper
+@mixin fluid-text($min, $max, $vw-min: 360, $vw-max: 1440) {
+  $slope: math.div($max - $min, $vw-max - $vw-min);
+  $intercept: $min - $slope * $vw-min;
+  font-size: clamp(#{$min}px, #{$intercept}px + #{$slope * 100}vw, #{$max}px);
+}
+
+@mixin container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @include respond-to(md) {
+    max-width: 720px;
+    padding-inline: 2rem;
+  }
+  @include respond-to(lg) {
+    max-width: 960px;
+  }
+  @include respond-to(xl) {
+    max-width: 1140px;
+  }
+}
+
+@mixin section {
+  padding-block: 3rem;
+  @include respond-to(md) {
+    padding-block: 5rem;
+  }
+  @include respond-to(lg) {
+    padding-block: 7rem;
+  }
+}
+
+@mixin reset-button {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+@mixin focus-ring {
+  outline: none;
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

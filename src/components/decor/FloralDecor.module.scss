@@ -1,0 +1,15 @@
+.decor {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: var(--color-accent);
+  pointer-events: none;
+  user-select: none;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+  }
+}

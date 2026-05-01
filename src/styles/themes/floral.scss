@@ -1,0 +1,21 @@
+.theme-floral {
+  --color-bg: #fdf6f3;
+  --color-surface: #fff;
+  --color-text: #3a2c2e;
+  --color-muted: #8a6e72;
+  --color-accent: #c9899a;
+  --color-accent-soft: #f0c9d1;
+  --color-border: rgba(58, 44, 46, 0.14);
+
+  --font-display: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-montserrat), "Montserrat", -apple-system, sans-serif;
+  --font-script: var(--font-caveat), "Caveat", "Brush Script MT", cursive;
+
+  --hero-overlay: linear-gradient(
+    180deg,
+    rgba(253, 246, 243, 0.35) 0%,
+    rgba(253, 246, 243, 0.92) 100%
+  );
+
+  --section-divider: '\2740'; // ❀ flower
+}

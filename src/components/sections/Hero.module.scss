@@ -1,0 +1,138 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: kenburns 24s ease-in-out infinite alternate;
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1%, -1%); }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.35) 40%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 800px;
+
+  @include respond-to(md) {
+    gap: 2.5rem;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-script);
+  @include fluid-text(20, 28);
+  font-style: normal;
+  letter-spacing: 0.01em;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  animation: fade-in-down 1100ms $ease 200ms both;
+}
+
+.names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  animation: fade-in-up 1300ms $ease 500ms both;
+}
+
+.name {
+  @include fluid-text(64, 132);
+  display: block;
+  line-height: 1;
+}
+
+.amp {
+  @include fluid-text(48, 90);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 0.6;
+  margin: -0.25rem 0;
+}
+
+.date {
+  font-family: var(--font-body);
+  @include fluid-text(14, 18);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  animation: fade-in 1100ms $ease 1000ms both;
+}
+
+.scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 60px;
+  z-index: 1;
+  animation: fade-in 1000ms $ease 1500ms both;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.scrollLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: #fff;
+  animation: scroll 2.2s $ease infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { opacity: 1; }
+  100% { transform: translateY(220%); opacity: 0; }
+}

@@ -1,0 +1,61 @@
+.btn {
+  @include reset-button;
+  @include focus-ring;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: $radius-pill;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: transform $dur-fast $ease, background $dur-fast $ease,
+    color $dur-fast $ease, border-color $dur-fast $ease;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.primary {
+  background: var(--color-accent);
+  color: var(--color-bg);
+
+  &:hover {
+    background: var(--color-text);
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: var(--color-text);
+
+  &:hover {
+    background: var(--color-accent-soft);
+  }
+}
+
+.outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+}

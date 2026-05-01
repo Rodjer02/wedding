@@ -1,0 +1,62 @@
+.section {
+  @include section;
+  background: var(--color-bg);
+  padding-top: 3rem;
+
+  @include respond-to(md) {
+    padding-top: 5rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  max-width: 720px;
+  margin-inline: auto;
+
+  @include respond-to(md) {
+    gap: 1.25rem;
+  }
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 1rem 0.4rem;
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-radius: $radius-pill;
+  aspect-ratio: 1 / 1.15;
+
+  @include respond-to(md) {
+    padding: 1.5rem 0.5rem;
+    gap: 0.4rem;
+    aspect-ratio: 1 / 1.1;
+  }
+}
+
+.value {
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  @include fluid-text(28, 56);
+  color: var(--color-bg);
+}
+
+.label {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  color: var(--color-bg);
+  opacity: 0.85;
+  font-weight: 400;
+
+  @include respond-to(md) {
+    font-size: 0.78rem;
+  }
+}
