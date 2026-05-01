@@ -8,6 +8,7 @@ import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
 import { AutoReveal } from "@/components/ui/AutoReveal";
 import { SectionDivider } from "@/components/ui/SectionDivider";
 import { FallingDecor } from "@/components/decor/FallingDecor";
+import { BackgroundMusic } from "@/components/ui/BackgroundMusic";
 import { isValidTheme } from "@/lib/theme";
 import type { ThemeVariant } from "@/config/wedding";
 
@@ -26,6 +27,7 @@ export default function StylePage() {
       <ThemeSwitcher current={variant} />
       <AutoReveal />
       <FallingDecor count={20} kinds={fallKinds[variant]} />
+      <BackgroundMusic src="/sounds/background.mp3" />
       <Hero />
       <Countdown />
       <SectionDivider variant="branch" />
