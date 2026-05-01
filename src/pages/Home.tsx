@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { Invitation } from "@/components/sections/Invitation";
 import { Countdown } from "@/components/sections/Countdown";
 import { Location } from "@/components/sections/Location";
 import { Rsvp } from "@/components/sections/Rsvp";
@@ -15,10 +16,12 @@ export default function Home() {
       <FallingDecor count={22} kinds={["heart", "petal"]} />
       <BackgroundMusic src="/sounds/background.mp3" />
       <Hero />
-      <Countdown />
+      <Invitation />
       <SectionDivider variant="branch" />
       <Location />
       <SectionDivider variant="rose" />
+      <Countdown />
+      <SectionDivider variant="ornament" />
       <Rsvp />
       <Footer />
     </main>

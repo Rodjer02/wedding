@@ -1,11 +1,25 @@
+@font-face {
+  font-family: "Glamour";
+  src: url("/fonts/Glamour.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "KZBalmoral";
+  src: url("/fonts/kzbalmoral_regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --font-cormorant: "Cormorant Garamond";
-  --font-inter: "Inter";
   --font-playfair: "Playfair Display";
   --font-montserrat: "Montserrat";
   --font-marck: "Marck Script";
-  --font-caveat: "Caveat";
-  --font-pacifico: "Pacifico";
+  --font-glamour: "Glamour";
+  --font-balmoral: "KZBalmoral";
 }
 
 *,

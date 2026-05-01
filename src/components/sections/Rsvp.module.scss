@@ -1,6 +1,6 @@
 .section {
   @include section;
-  background: var(--color-surface);
+  background: var(--color-bg);
   position: relative;
   overflow: hidden;
 }
