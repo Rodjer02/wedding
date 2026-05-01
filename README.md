@@ -1,35 +1,37 @@
-# Wedding Vite — қысқа нұсқа (Vite клон)
+# Wedding Vite — қысқа нұсқа
 
-Vite + React 19 + SCSS Modules. Полный клон `wedding-simple` (Next.js) на Vite.
+Vite + React 19 + SCSS Modules.
 
 ## Стек
 - Vite 6 + React 19 + TypeScript
-- React Router 6 (вместо App Router)
-- SCSS Modules + CSS Variables (для тем)
-- React Hook Form + Zod (RSVP)
-- Resend (email через dev middleware Vite)
-- 2GIS iframe (карта)
+- React Router 6
+- SCSS Modules + CSS Variables (темы)
+- React Hook Form + Zod (валидация RSVP)
+- EmailJS (отправка писем прямо из браузера)
 
 ## Запуск
 ```bash
 npm install
-cp .env.example .env.local   # вписать RESEND_API_KEY
+cp .env.example .env.local   # вписать ключи EmailJS
 npm run dev
 ```
 
-Открыть `http://localhost:5173`.
+Открой `http://localhost:5173`.
 
 ## Роуты
 - `/` — главная (выбор стиля)
-- `/style/classic` | `/style/floral` | `/style/traditional`
-- `POST /api/rsvp` — приём RSVP, отправка email через Resend (dev middleware Vite)
+- `/style/classic | /style/floral | /style/traditional`
 
-## Отличия от Next-версии
-- `next/image` → обычный `<img>`
-- `next/link` → `<Link>` из `react-router-dom`
-- `next/font/google` → `<link>` в `index.html` + CSS-переменные в `:root`
-- `app/api/rsvp/route.ts` → `server/rsvp.js` (middleware в `vite.config.ts`)
-- Алиас `@/*` → `./src/*` (был `./*`)
+## EmailJS
+Регистрация → service + template + public key. Подробно — `EMAILJS_SETUP.md` (или Aisha-проект). Public Key безопасен в клиенте.
 
-## Прод
-Для прода нужен отдельный сервер для `/api/rsvp` (`npm run server` поднимает Express).
+Ключи в `.env.local`:
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
+- `VITE_RSVP_TO_EMAIL` (опционально)
+
+Без ключей форма уйдёт в `mailto:` fallback.
+
+## Деплой Vercel
+Settings → Environment Variables → пропиши те же `VITE_EMAILJS_*`. Передеплой. Серверные функции не нужны — всё клиент.

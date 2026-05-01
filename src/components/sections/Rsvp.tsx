@@ -1,15 +1,23 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import emailjs from "@emailjs/browser";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { Input, Select, Textarea } from "@/components/ui/Field";
 import { rsvpSchema, type RsvpInput } from "@/lib/rsvp-schema";
+import { EMAILJS_CONFIG, isEmailConfigured } from "@/lib/emailConfig";
 import { FloralDecor } from "@/components/decor/FloralDecor";
 import styles from "./Rsvp.module.scss";
 
 type Status = "idle" | "sending" | "ok" | "error";
+
+const attendingLabel: Record<string, string> = {
+  yes: "Иә, қатысамын",
+  no: "Өкінішке орай, келе алмаймын",
+  maybe: "Әлі белгісіз",
+};
 
 export function Rsvp() {
   const [status, setStatus] = useState<Status>("idle");
@@ -28,18 +36,44 @@ export function Rsvp() {
   const onSubmit = async (data: RsvpInput) => {
     setStatus("sending");
     setErrorMsg("");
-    try {
-      const res = await fetch("/api/rsvp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error ?? "Қате орын алды");
+
+    if (isEmailConfigured()) {
+      try {
+        await emailjs.send(
+          EMAILJS_CONFIG.serviceId,
+          EMAILJS_CONFIG.templateId,
+          {
+            from_name: data.name,
+            attendance: attendingLabel[data.attending] || data.attending,
+            guests: String(data.guests),
+            phone: data.phone || "—",
+            message: data.message || "—",
+            to_email: EMAILJS_CONFIG.toEmail,
+          },
+          EMAILJS_CONFIG.publicKey
+        );
+        setStatus("ok");
+        reset();
+        return;
+      } catch (e) {
+        console.error("EmailJS failed:", e);
       }
-      setStatus("ok");
-      reset();
+    }
+
+    try {
+      const subject = encodeURIComponent(`RSVP — ${data.name}`);
+      const body = encodeURIComponent(
+        `Аты-жөні: ${data.name}\n` +
+          `Қатысу: ${attendingLabel[data.attending] || data.attending}\n` +
+          `Адам саны: ${data.guests}\n` +
+          `Телефон: ${data.phone || "—"}\n` +
+          `Хабарлама: ${data.message || "—"}`
+      );
+      window.location.href = `mailto:${EMAILJS_CONFIG.toEmail}?subject=${subject}&body=${body}`;
+      setTimeout(() => {
+        setStatus("ok");
+        reset();
+      }, 500);
     } catch (e) {
       setStatus("error");
       setErrorMsg(e instanceof Error ? e.message : "Қате");
