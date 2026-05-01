@@ -3,7 +3,7 @@ import styles from "./NotFound.module.scss";
 
 export default function NotFound() {
   return (
-    <main className="theme-classic">
+    <main className="theme-floral">
       <div className={styles.wrap}>
         <h1>404</h1>
         <p>Бет табылмады</p>
