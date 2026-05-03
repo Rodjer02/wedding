@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
-import { Input, Select, Textarea } from "@/components/ui/Field";
+import { Input, Select } from "@/components/ui/Field";
 import { rsvpSchema, type RsvpInput } from "@/lib/rsvp-schema";
 import { EMAILJS_CONFIG, isEmailConfigured } from "@/lib/emailConfig";
 import { FloralDecor } from "@/components/decor/FloralDecor";
@@ -46,8 +46,6 @@ export function Rsvp() {
             from_name: data.name,
             attendance: attendingLabel[data.attending] || data.attending,
             guests: String(data.guests),
-            phone: data.phone || "—",
-            message: data.message || "—",
             to_email: EMAILJS_CONFIG.toEmail,
           },
           EMAILJS_CONFIG.publicKey
@@ -65,9 +63,7 @@ export function Rsvp() {
       const body = encodeURIComponent(
         `Аты-жөні: ${data.name}\n` +
           `Қатысу: ${attendingLabel[data.attending] || data.attending}\n` +
-          `Адам саны: ${data.guests}\n` +
-          `Телефон: ${data.phone || "—"}\n` +
-          `Хабарлама: ${data.message || "—"}`
+          `Адам саны: ${data.guests}`
       );
       window.location.href = `mailto:${EMAILJS_CONFIG.toEmail}?subject=${subject}&body=${body}`;
       setTimeout(() => {
@@ -127,21 +123,6 @@ export function Rsvp() {
               label="Қанша адам"
               {...register("guests", { valueAsNumber: true })}
               error={errors.guests?.message}
-            />
-
-            <Input
-              type="tel"
-              label="Телефон (қалауыңыз бойынша)"
-              placeholder="+7 (___) ___-__-__"
-              {...register("phone")}
-              error={errors.phone?.message}
-            />
-
-            <Textarea
-              label="Тілек, аллергия немесе ескерту"
-              placeholder="Қосымша ақпарат..."
-              {...register("message")}
-              error={errors.message?.message}
             />
 
             <Button type="submit" disabled={status === "sending"}>

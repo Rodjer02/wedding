@@ -26,7 +26,7 @@ export function Location() {
 
           <h3 className={styles.venue}>{venue.name}</h3>
           <p className={styles.address}>{venue.address}</p>
-          <p className={styles.city}>Астана қаласы</p>
+          <p className={styles.time}>27 шілде 2026 ж. · 17:00</p>
         </div>
 
         <a

@@ -29,7 +29,7 @@ export function Hero() {
           <span className={styles.name}>{bride.name}</span>
         </h1>
 
-        <p className={styles.date}>{formatKazakhDate(date)} ж.</p>
+        <p className={styles.date}>{formatKazakhDate(date)} ж. · 17:00</p>
       </div>
 
       <a className={styles.scroll} href="#countdown" aria-label="Төменге айналдыру">

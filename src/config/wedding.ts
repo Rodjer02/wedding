@@ -15,7 +15,7 @@ export const weddingData = {
     name: "Жұлдыз",
     surname: "Болатқызы",
   },
-  date: "2026-07-27T16:00:00+06:00",
+  date: "2026-07-27T17:00:00+06:00",
   invitation: {
     greeting: "Қымбатты достар мен туыстар!",
     intro:
@@ -23,20 +23,13 @@ export const weddingData = {
     closing: "Сіздердің қатысуыңыз — ең қымбат сыйлық.",
   },
   venue: {
-    name: "«Вечное Небо» мейрамханасы",
-    address: "Астана қ.",
+    name: "«Ұлытау» мейрамханасы",
+    address: "Қаныш Сәтбаев көшесі, 22/1, Астана қ.",
     twogis: {
-      orgId: "70000001022773916",
-      city: "nur_sultan",
-      lat: 51.12541808936501,
-      lon: 71.43451094627382,
-      zoom: 16,
-      mapUrl:
-        "https://2gis.kz/nur_sultan/firm/70000001022773916/center/71.43453240394594,51.12541808936501/zoom/16",
-      photosUrl:
-        "https://2gis.kz/nur_sultan/firm/70000001022773916/photos/70000001022773916/center/71.43453240394594,51.12541808936501/zoom/17",
-      routeUrl:
-        "https://2gis.kz/nur_sultan/center/71.434528,51.124911/zoom/16/routeTab/rsType/bus/to/71.434528,51.124911",
+      orgId: "70000001083350446",
+      city: "astana",
+      mapUrl: "https://2gis.kz/astana/geo/70000001083350446",
+      routeUrl: "https://2gis.kz/astana/geo/70000001083350446",
     },
   },
   schedule: [
