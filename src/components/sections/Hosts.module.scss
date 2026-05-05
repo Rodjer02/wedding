@@ -1,0 +1,72 @@
+.section {
+  @include section;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.decorLeft,
+.decorRight {
+  position: absolute;
+  top: 50%;
+  width: clamp(120px, 16vw, 200px);
+  height: clamp(120px, 16vw, 200px);
+  opacity: 0.3;
+  pointer-events: none;
+  color: var(--color-accent);
+  z-index: 0;
+}
+
+.decorLeft {
+  left: -2rem;
+  --rot: -20deg;
+  transform: translateY(-50%);
+  animation: float-slow 11s $ease infinite;
+}
+
+.decorRight {
+  right: -2rem;
+  --rot: 200deg;
+  transform: translateY(-50%);
+  animation: float-slower 13s $ease infinite 1s;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eyebrow {
+  font-family: var(--font-script);
+  @include fluid-text(28, 44);
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.names {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  @include fluid-text(28, 48);
+  color: var(--color-text);
+  font-weight: 500;
+  line-height: 1.1;
+
+  span {
+    display: inline-block;
+  }
+}
+
+.amp {
+  font-family: var(--font-script);
+  color: var(--color-accent);
+  font-weight: 400;
+  @include fluid-text(32, 56);
+  line-height: 0.9;
+}

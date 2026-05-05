@@ -28,7 +28,7 @@ export function Invitation() {
 
           <p className={styles.scriptNames}>
             ұлымыз <em>Айбат</em><br />
-            қызымыз <em>Жұлдыздың</em>
+            келініміз <em>Жұлдыздың</em>
           </p>
 
           <p className={styles.upper}>

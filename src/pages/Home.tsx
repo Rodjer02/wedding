@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { Invitation } from "@/components/sections/Invitation";
+import { Hosts } from "@/components/sections/Hosts";
 import { Countdown } from "@/components/sections/Countdown";
 import { Location } from "@/components/sections/Location";
 import { Rsvp } from "@/components/sections/Rsvp";
@@ -18,6 +19,8 @@ export default function Home() {
       <Hero />
       <Invitation />
       <SectionDivider variant="branch" />
+      <Hosts />
+      <SectionDivider variant="leaf" />
       <Location />
       <SectionDivider variant="rose" />
       <Countdown />
