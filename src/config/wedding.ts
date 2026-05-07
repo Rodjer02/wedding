@@ -15,7 +15,7 @@ export const weddingData = {
     name: "Жұлдыз",
     surname: "Болатқызы",
   },
-  date: "2026-07-27T17:00:00+06:00",
+  date: "2026-07-17T17:00:00+06:00",
   invitation: {
     greeting: "Қымбатты достар мен туыстар!",
     intro:

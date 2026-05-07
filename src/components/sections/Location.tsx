@@ -17,7 +17,7 @@ export function Location() {
       </span>
 
       <Container>
-        <h2 className={styles.title}>Мекенжайымыз</h2>
+        <h2 className={styles.title}>Мекен-жайымыз</h2>
 
         <div className={styles.card}>
           <div className={styles.iconWrap} aria-hidden="true">
@@ -26,7 +26,7 @@ export function Location() {
 
           <h3 className={styles.venue}>{venue.name}</h3>
           <p className={styles.address}>{venue.address}</p>
-          <p className={styles.time}>27 шілде 2026 ж. · 17:00</p>
+          <p className={styles.time}>17 шілде 2026 ж. · 17:00</p>
         </div>
 
         <a
